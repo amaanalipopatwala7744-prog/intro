@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGISTRATION FROM</title>
+</head>
+<body>
+<form style="margin-top: 30px; border: 2px solid #ff0000; padding: 20px; border-radius: 10px; max-width: 500px; background: #f8f8ff;">
+    <fieldset>
+        <legend style="font-weight: bold; color: #ffe600;">Registration Form</legend>
+        <label for="fname">First Name:</label><br>
+        <input type="text" id="fname" name="fname" required><br><br>
+        <label for="lname">Last Name:</label><br>
+        <input type="text" id="lname" name="lname" required><br><br>
+        <label for="email">Email ID:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+        <label for="dob">Date of Birth:</label><br>
+        <input type="date" id="dob" name="dob" required><br><br>
+        <label for="mobile">Mobile Number:</label><br>
+        <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10}" required><br><br>
+        <label for="address">Address:</label><br>
+        <textarea id="address" name="address" rows="2" required></textarea><br><br>
+        <label for="pincode">Pincode:</label><br>
+        <input type="text" id="pincode" name="pincode" pattern="[0-9]{6}" required><br><br>
+        <label for="state">State:</label><br>
+        <input type="text" id="state" name="state" required><br><br>
+        <label for="city">City:</label><br>
+        <input type="text" id="city" name="city" required><br><br>
+        <label>Gender:</label><br>
+        <input type="radio" id="male" name="gender" value="Male" required>
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="Female">
+        <label for="female">Female</label>
+        <input type="radio" id="other" name="gender" value="Other">
+        <label for="other">Other</label><br><br>
+        <label>Hobbies:</label><br>
+        <input type="checkbox" id="reading" name="hobbies" value="Reading">
+        <label for="reading">Reading</label>
+        <input type="checkbox" id="sports" name="hobbies" value="Sports">
+        <label for="sports">Sports</label>
+        <input type="checkbox" id="music" name="hobbies" value="Music">
+        <label for="music">Music</label>
+        <input type="checkbox" id="travel" name="hobbies" value="Travel">
+        <label for="travel">Travel</label><br><br>
+        <button type="submit" style="background-color: #ff7300; color: white; padding: 8px 16px; border: none; border-radius: 5px; cursor: pointer;">Submit</button>
+    </fieldset>
+</form>
+</body>
+</html>
