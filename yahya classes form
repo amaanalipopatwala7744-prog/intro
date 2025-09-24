@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yahya Personal Tuition Classes</title>
+</head>
+<body>
+    <h1 id="top">YAHYA PERSONAL TUTION CLASSES</h1>
+  <h2>Yahya Personal Tuition Classes - Admission Form</h2>
+  <form>
+    <label>First Name:</label>
+    <input type="text" name="firstName"><br><br>
+
+    <label>Last Name:</label>
+    <input type="text" name="lastName"><br><br>
+
+    <label>Email Address:</label>
+    <input type="email" name="email"><br><br>
+
+    <label>Password:</label>
+    <input type="password" name="password"><br><br>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <hr>
+
+  <h2>Image and Link</h2>
+  <img src="./1000037944.jpg" width="300" alt="yahya personal tution classes Logo">
+  <br>
+  <a href="./1000038052.jpg" target="_blank">
+    Open React Image in New Tab
+  </a>
+
+  <hr>
+
+
+  <h2>Sample Table</h2>
+  <table border="1" cellpadding="5">
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>City</th>
+    </tr>
+    <tr>
+      <td>Ali</td>
+      <td>22</td>
+      <td>Mumbai</td>
+    </tr>
+    <tr>
+      <td>Sara</td>
+      <td>20</td>
+      <td>Delhi</td>
+    </tr>
+  </table>
+
+  <hr>
+
+  
+  <h2>Lists</h2>
+  <h3>Unordered List</h3>
+  <ul>
+    <li>Mathematics</li>
+    <li>Science</li>
+    <li>English</li>
+  </ul>
+
+  <h3>Ordered List</h3>
+  <ol>
+    <li>Wake Up</li>
+    <li>Study</li>
+    <li>Revise</li>
+  </ol>
+
+  <hr>
+
+  
+  <h2>Form with Input Attributes</h2>
+  <form>
+    <label>Name:</label>
+    <input type="text" value="amaanali popatwala" maxlength="27"><br><br>
+
+    <label>Select Date:</label>
+    <input type="date" min="2023-01-01" max="2024-12-31"><br><br>
+
+    <label>Upload Files:</label>
+    <input type="file" multiple><br><br>
+
+    <label>Choose a Number (1-10):</label>
+    <input type="number" min="1" max="10"><br><br>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <hr>
+
+ 
+  <h2>Form with Different Input Types</h2>
+  <form>
+    <label>Username:</label>
+    <input type="text" name="username"><br><br>
+
+    <label>Password:</label>
+    <input type="password" name="password"><br><br>
+
+    <label>Gender:</label>
+    <input type="radio" name="gender" value="male"> Male
+    <input type="radio" name="gender" value="female"> Female <br><br>
+
+    <label>Agree to Terms:</label>
+    <input type="checkbox" name="terms"> Yes<br><br>
+
+    <label>Country:</label>
+    <select name="country">
+      <option value="india">India</option>
+      <option value="usa">USA</option>
+      <option value="uk">UK</option>
+    </select><br><br>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <hr>
+
+ 
+  <h2>Video Example</h2>
+  <video width="400" controls>
+    <source src="movie2.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <hr>
+
+
+  <h2>Hyperlinks and Anchor Tags</h2>
+  <a href="https://v-extechsolution.in/" target="_blank">Go to V-Ex Tech Solution</a>
+  <br><br>
+  <a href="#top">Go to Top of Page</a>
+
+</body>
+</html>
