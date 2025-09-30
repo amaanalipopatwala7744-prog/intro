@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/fontawesome.min.css" integrity="sha512-M5Kq4YVQrjg5c2wsZSn27Dkfm/2ALfxmun0vUE3mPiJyK53hQBHYCVAtvMYEC7ZXmYLg8DVG4tF8gD27WmDbsg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <title>navigation tag</title>
+</head>
+<style>
+    body{
+        margin: 0;
+    }
+    .nav{
+       display: flex;
+       justify-content: space-between;
+         align-items: center; 
+         background-color: aqua;
+        width: 100%;
+        height: auto;
+        .left{
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            padding: 0 20px;
+            font-size: 20px;
+             
+            li{
+                display: flex;
+               flex-direction: column;
+               align-items: center;
+            }
+            .right{
+                display: flex;
+                gap: 20px;
+                padding: 0 20px;
+                font-size: 20px;
+                align-items: center;
+                i{
+                    cursor: pointer;
+                }
+
+
+            }
+        }
+
+
+}
+</style>
+<body>
+    <div class ="v-ex nav">
+    <div class="left">
+        <li><i class="fa-etch fa-solid fa-phone"></i>
+            contact</li>
+        <li>
+             <i class="fa-duotone fa-regular fa-heart"></i>services</li>
+        <li>
+             <i class="fa-duotone fa-regular fa-user"></i>
+            about us</li>
+    </div>
+    <div class="center">
+        <img src="./v_ex_tech_software_company_in_vadodara_logo.jpg" alt="logo">
+    </div>
+    <div class="right">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-regular fa-user"></i>
+            <i class="fa-regular fa-circle-down"></i>
+            <span>≡</span>
+            
+            
+        </div>
+    </div>
+</body>
+</html>
