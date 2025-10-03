@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Smart Car Point</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Navbar */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgb(255, 115, 0);
+      padding: 10px 20px;
+    }
+
+    /* Left menu */
+    .left ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .left li {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 15px;
+      cursor: pointer;
+      color: white;
+      transition: 0.3s;
+    }
+
+    .left li:hover {
+      color: black;
+    }
+
+    .left i {
+      margin-bottom: 5px;
+      font-size: 20px;
+    }
+
+    /* Center logo */
+    .center img {
+      height: 105px;
+    }
+
+    /* Right icons */
+    .right {
+      display: flex;
+      gap: 20px;
+      font-size: 20px;
+      align-items: center;
+      color: white;
+    }
+
+    .right i, .right span {
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .right i:hover, .right span:hover {
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  <div class="nav">
+    
+    <!-- Left Menu -->
+    <div class="left">
+      <ul>
+        <li><i class="fa-solid fa-headset"></i>Contact</li>
+        <li><i class="fa-solid fa-gears"></i>Services</li>
+        <li><i class="fa-solid fa-circle-info"></i>About Us</li>
+        <li><i class="fa-solid fa-taxi"></i>Book Cab</li>
+        <li><i class="fa-solid fa-car-rear"></i>Vehicles</li>
+        <li><i class="fa-solid fa-user-shield"></i>Login</li>
+      </ul>
+    </div>
+
+    <!-- Center Logo -->
+    <div class="center">
+      <img src="./Screenshot 2025-10-03 at 18-24-17 Smart Cab Point.png" alt="Smart Car Point Logo">
+    </div>
+
+    <!-- Right Icons -->
+    <div class="right">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <i class="fa-solid fa-circle-down"></i>
+      <span>≡</span>
+    </div>
+
+  </div>
+</body>
+</html>
