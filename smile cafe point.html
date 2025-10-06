@@ -6,14 +6,14 @@
 <title>Smile Cafe Point Navbar</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 <style>
-/* Reset some default styles */
-* {
+
+.body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Navbar container */
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -26,7 +26,6 @@
     font-family: 'Arial', sans-serif;
 }
 
-/* Logo */
 .navbar .logo {
     font-size: 24px;
     font-weight: bold;
@@ -35,7 +34,6 @@
     letter-spacing: 1px;
 }
 
-/* Nav links */
 .navbar ul {
     display: flex;
     list-style: none;
@@ -50,10 +48,9 @@
 }
 
 .navbar ul li a:hover {
-    color: #d4a373; /* golden hover like the image */
+    color: #d4a373;
 }
 
-/* Book Table Button */
 .navbar .btn {
     background-color: #d4a373;
     color: #fff;
@@ -69,7 +66,6 @@
     background-color: #b8865b;
 }
 
-/* Cart & User Icon */
 .navbar .icons {
     display: flex;
     align-items: center;
@@ -87,7 +83,7 @@
     color: #d4a373;
 }
 
-/* Responsive */
+
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
@@ -122,10 +118,7 @@
         <i class="fas fa-user-circle"></i>
     </div>
 </nav>
-
-<!-- Code injected by live-server -->
 <script>
-	// <![CDATA[  <-- For SVG support
 	if ('WebSocket' in window) {
 		(function () {
 			function refreshCSS() {
@@ -159,7 +152,7 @@
 	else {
 		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
 	}
-	// ]]>
+	
 </script>
 </body>
 </html>
