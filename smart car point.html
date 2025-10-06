@@ -1,106 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <title>Smart Car Point</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-    }
-
-    /* Navbar */
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: rgb(255, 115, 0);
-      padding: 10px 20px;
-    }
-
-    /* Left menu */
-    .left ul {
-      list-style: none;
-      display: flex;
-      gap: 25px;
-      margin: 0;
-      padding: 0;
-    }
-
-    .left li {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      font-size: 15px;
-      cursor: pointer;
-      color: white;
-      transition: 0.3s;
-    }
-
-    .left li:hover {
-      color: black;
-    }
-
-    .left i {
-      margin-bottom: 5px;
-      font-size: 20px;
-    }
-
-    /* Center logo */
-    .center img {
-      height: 105px;
-    }
-
-    /* Right icons */
-    .right {
-      display: flex;
-      gap: 20px;
-      font-size: 20px;
-      align-items: center;
-      color: white;
-    }
-
-    .right i, .right span {
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .right i:hover, .right span:hover {
-      color: black;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+    <title>Smart Cab Point Navigation</title>
+    <style>
+        body { margin: 0; font-family: sans-serif; }
+        .navbar {
+            width: 100%;
+            background: #fff;
+            box-shadow: 0 2px 8px rgb(255, 153, 0);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 32px;
+            height: 64px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .navbar-section {
+            display: flex;
+            align-items: center;
+        }
+        .navbar-left li {
+            list-style: none;
+            margin: 0 12px;
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            color: #333;
+            cursor: pointer;
+        }
+        .navbar-left li i {
+            margin-right: 5px;
+            font-size: 18px;
+            color: #f9ab06;
+        }
+        .navbar-left { display: flex; }
+        .navbar-center img {
+            height: 40px;
+            margin: 0 24px;
+        }
+        .navbar-right {
+            display: flex;
+            align-items: center;
+        }
+        .navbar-right i, .navbar-right span {
+            margin: 0 10px;
+            font-size: 20px;
+            color: #333;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .navbar-right i.fa-user { color: #f9ab06; }
+        .book-btn {
+            background: #080808;
+            color: #ffd000;
+            padding: 7px 16px;
+            border-radius: 19px;
+            margin-left: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .navbar-right .book-btn:hover {
+            background: #d69405;
+        }
+        .navbar-vehicle,.navbar-login {
+            margin-left: 15px;
+            color: #222;
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
-  <div class="nav">
+    <nav class="navbar">
+      <div class="head">
+        <h1>Smart Cab Point</h1>
+      </div>
+        <div class="navbar-section navbar-left">
+            <li><i class="fa-solid fa-circle-info"></i>About</li>
+            <li><i class="fa-solid fa-headset"></i>Service</li>
+            <li><i class="fa-solid fa-phone"></i>Contact</li>
+            <button class="book-btn"><i class="fa-solid fa-taxi"></i>Book Cab</button>
+        </div>
     
-    <!-- Left Menu -->
-    <div class="left">
-      <ul>
-        <li><i class="fa-solid fa-headset"></i>Contact</li>
-        <li><i class="fa-solid fa-gears"></i>Services</li>
-        <li><i class="fa-solid fa-circle-info"></i>About Us</li>
-        <li><i class="fa-solid fa-taxi"></i>Book Cab</li>
-        <li><i class="fa-solid fa-car-rear"></i>Vehicles</li>
-        <li><i class="fa-solid fa-user-shield"></i>Login</li>
-      </ul>
-    </div>
-
-    <!-- Center Logo -->
-    <div class="center">
-      <img src="./Screenshot 2025-10-03 at 18-24-17 Smart Cab Point.png" alt="Smart Car Point Logo">
-    </div>
-
-    <!-- Right Icons -->
-    <div class="right">
-      <i class="fa-solid fa-magnifying-glass"></i>
-      <i class="fa-solid fa-circle-down"></i>
-      <span>≡</span>
-    </div>
-
-  </div>
+        <div class="navbar-section navbar-right">
+            <span class="navbar-vehicle"><i class="fa-solid fa-car"></i>vehicle</span>
+            <span class="navbar-login"><i class="fa-solid fa-arrow-right-to-bracket"></i>Login</span>
+        </div>
+    </nav>
 </body>
 </html>
