@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zephyr</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    font-family: 'Georgia', serif;
+}
+
+.logo {
+    font-size: 40px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #000;
+    font-family: 'Georgia', serif;
+    margin-right: 30px;
+    line-height: 1;
+}
+
+.nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.nav-icons i {
+    font-size: 23px;
+    color: #000;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.nav-icons i:hover {
+    color: #eb5e28;
+}
+
+@media (max-width: 900px) {
+    .navbar {
+        flex-direction: column;
+        padding: 15px 10px;
+    }
+    .logo {
+        margin-bottom: 8px;
+    }
+    .nav-icons {
+        gap: 18px;
+    }
+}
+</style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">ZEPHYR</div>
+        <div class="nav-icons">
+            <i class="fas fa-search"></i>
+            <i class="fas fa-heart"></i>
+            <i class="fas fa-shopping-cart"></i>
+            <i class="fas fa-user-circle"></i>
+        </div>
+    </nav>
+</body>
+</html>
