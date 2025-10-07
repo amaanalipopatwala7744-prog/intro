@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="./Black Gold Luxury Elegant Jewelry Logo.png">
+  <title>Static Visa Box</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url('./Black\ Gold\ Luxury\ Elegant\ Jewelry\ Logo.png') ;
+       background-repeat: no-repeat;
+        background-size: cover;
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+    
+    .contact-strip {
+      position: absolute;
+      top: 40%;
+      left: 0;
+      transform: translateY(-50%);
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      background: #e60000;
+      color: rgb(194, 248, 0);
+      padding: 5px 10px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      border-top: 3px solid black;
+      border-bottom: 3px solid black;
+    }
+
+    
+    .box-container {
+      position: absolute;
+      bottom: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgb(7, 231, 247);
+      border-radius: 8px;
+      padding: 20px 30px;
+      display: flex;
+      gap: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    
+    .fake-field {
+      width: 160px;
+      height: 40px;
+      background-color: #f9f9f9;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      padding-left: 10px;
+      color: #068cfa;
+      font-size: 14px;
+    }
+
+
+    .send-button {
+      background-color: #e60000;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 4px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 40px;
+      cursor: default;
+    }
+
+    
+    @media (max-width: 768px) {
+      .box-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .fake-field,
+      .send-button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">  
+  <div class="contact-strip">CONTACT</div>
+
+  <div class="box-container">
+    <div class="fake-field">Name</div>
+    <div class="fake-field">MobileNo</div>
+    <div class="fake-field">Select Visa type</div>
+    <div class="fake-field">Select Country</div>
+    <div class="send-button">Send Request</div>
+  </div>
+</div>
+
+</body>
+</html>
