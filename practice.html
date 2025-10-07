@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sticky position example</title>
+  <style>
+    h1{
+      display: none;
+      visibility: hidden;
+    }
+    body{
+      margin: 0;
+      font-family: arial sans-serif;
+    }
+
+    .container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    background-color: #f0f0f0;
+    margin: 50px auto;
+    border: 2px solid #333;
+}
+
+.box {
+    position: absolute;
+    top: 80px;
+    left: 50px;
+    width: 100px;
+    height: 100px;
+    background-color: #ff6347;
+}
+
+    .header{
+     
+      background: color #333;
+      color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 24px;
+    }
+    .sticky {
+    position: sticky;
+    top: 0;
+    background-color: #ff6347; 
+    padding: 10px;
+    font-size: 20px;
+    z-index: 1000;
+    }
+    .content{
+      padding: 80px 20px;
+    }
+    .section{
+      margin-bottom: 100px;
+    }
+    p{
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box">I am absolutely positioned</div>
+</div>
+<div class="header">
+    sticky position example
+    </div>
+    <div class="content">
+      <div class="sticky">
+           I will stick to the top of the page when you scroll past me.
+      </div>
+
+      <div class="section">
+        <h2>Section 1</h2>
+        <p>This is some content in section 1. Scroll down to see the sticky element in action.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa.</p>
+    </div>
+
+    <div class="section">
+        <h2>Section 2</h2>
+        <p>This is some content in section 2. Keep scrolling to see the sticky element remain in place.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa.</p>
+    </div>
+
+    <div class="section">
+        <h2>Section 3</h2>
+        <p>This is some content in section 3. Notice how the sticky element is still visible at the top.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa.</p>
+    </div>
+      <p>>This is some content below the fixed header. Scroll down to see the fixed header staying in place.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Mauris ante ligula, facilisis sed ornare eu, lobortis in odio. Praesent convallis urna a lacus interdum ut hendrerit risus congue. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Mauris ante ligula, facilisis sed ornare eu, lobortis in odio. Praesent convallis urna a lacus interdum ut hendrerit risus congue. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Mauris ante ligula, facilisis sed ornare eu, lobortis in odio. Praesent convallis urna a lacus interdum ut hendrerit risus congue. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.</p>
+      
+    </div>
+  <h1>this is a heading</h1>
+  <h1>this is hidden heading</h1>
+  <p>Notice that the h1 element with display: none; does not take up any space.</p>
+</body>
+</html>
