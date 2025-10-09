@@ -6,6 +6,63 @@
     <title>Document</title>
 </head>
 <style>
+  body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+
+
+    .parent{
+        position: relative;
+        cursor: pointer;
+
+        &:hover.parent{
+            transform: translate(60px);
+            opacity: 0.2;
+        }
+
+        button{
+             &:nth-child(1){
+                padding: 12px 16px;
+                background-color: rgb(2, 90, 255);
+                border: none;
+                color: white;
+                transition: all 0.5s;
+             }
+
+             &:nth-child(2){
+                background-color: rgb(0, 0, 0);
+                border: none;
+                z-index: -1;
+                position: absolute;
+                left: 0;
+                top: 0;
+                padding: 12px 16px;
+                color: white;
+             }
+        }
+    }
+  }
+    
+    
+</style>
+<body>
+<div class ="parent">
+    <button class="parent">Hover me</button>
+    <button class="btn">click</button>
+    
+</div>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
     h1{
         background-color: blue;
         width: fit-content;
@@ -17,4 +74,5 @@
 <body>
     
 </body>
+
 </html>
