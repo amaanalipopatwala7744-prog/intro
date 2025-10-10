@@ -3,86 +3,136 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Smile Cafe Point Navbar</title>
+<title>Smile Cafe Point</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 <style>
 
-.body {
+       /*li{
+        &::before{
+            content: ' ccd';
+            background-color: blue;
+            display: inline-block;
+            height: 100p;
+            width: 100px;
+        }
+
+        &::after{
+            content: 'moca';}
+    } */
+    
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+body {
+    font-family: 'Poppins', sans-serif;
+}
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 50px;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 15px 60px;
     position: sticky;
     top: 0;
     z-index: 1000;
-    font-family: 'Arial', sans-serif;
 }
 
-.navbar .logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #fff;
-    text-transform: uppercase;
+.logo {
+    font-size: 26px;
+    font-weight: 700;
+    color: #ffffff;
     letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 .navbar ul {
-    display: flex;
     list-style: none;
-    gap: 30px;
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.navbar ul li {
+    position: relative;
 }
 
 .navbar ul li a {
-    color: #fff;
     text-decoration: none;
-    font-size: 16px;
+    color: white;
+    font-size: 20px;
     transition: color 0.3s;
 }
 
 .navbar ul li a:hover {
-    color: #d4a373;
+    color: #230bf8;
 }
 
-.navbar .btn {
-    background-color: #d4a373;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
-    font-weight: bold;
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 35px;
+    left: 0;
+    background-color: #fff;
+    min-width: 180px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    border-radius: 6px;
+    overflow: hidden;
 }
 
-.navbar .btn:hover {
-    background-color: #b8865b;
+.dropdown li {
+    padding: 10px 15px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
-.navbar .icons {
+.dropdown li a {
+    color: #000;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown li:hover {
+    background-color: #f2f2f2;
+}
+
+.navbar ul li:hover .dropdown {
+    display: block;
+}
+
+.icons {
     display: flex;
     align-items: center;
     gap: 15px;
 }
 
-.navbar .icons i {
-    color: #fff;
-    font-size: 20px;
+.btn {
+    background-color: #f17209;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #000;
+}
+
+.icons i {
+    color: white;
+    font-size: 40px;
     cursor: pointer;
     transition: color 0.3s;
 }
 
-.navbar .icons i:hover {
-    color: #d4a373;
+.icons i:hover {
+    color: #ff8000;
 }
-
 
 @media (max-width: 768px) {
     .navbar {
@@ -94,19 +144,48 @@
         gap: 15px;
         margin: 10px 0;
     }
-    .navbar .icons {
-        margin-top: 10px;
-    }
 }
+
+
+     input{
+        /* border: none;
+        border-bottom: 1px solid black; */
+        padding: 10px;
+        border-radius: 10px;
+
+        &:focus{
+            outline: none;
+            border-bottom: 2px solid rgb(255, 0, 200);
+        }
+
+        &::placeholder{
+            color: rgba(89, 248, 15, 0.445);
+        }
+     }
 </style>
 </head>
 <body>
-
 <nav class="navbar">
     <div class="logo">Smile Cafe Point</div>
     <ul>
         <li><a href="#">Home</a></li>
-        <li><a href="#">Menu</a></li>
+        <li>
+            <a href="#">Menu <i class="fas fa-caret-down"></i></a>
+            <ul class="dropdown">
+                <li><a href="#">Coffee & Beverages</a></li>
+                <li><a href="#">Cold Coffee</a></li>
+                <li><a href="#">Green Tea</a></li>
+                <li><a href="#">Iced Latte</a></li>
+                <li><a href="#">Sandwich</a></li>
+                <li><a href="#">Veg Pizza</a></li>
+                <li><a href="#">French Fries</a></li>
+                <li><a href="#">Tacos</a></li>
+                <li><a href="#">Cheesecake</a></li>
+                <li><a href="#">Cupcakes</a></li>
+                <li><a href="#">Donuts</a></li>
+                <li><a href="#">Ice Cream</a></li>
+            </ul>
+        </li>
         <li><a href="#">Services</a></li>
         <li><a href="#">About</a></li>
         <li><a href="#">Shop</a></li>
@@ -117,42 +196,8 @@
         <i class="fas fa-shopping-cart"></i>
         <i class="fas fa-user-circle"></i>
     </div>
+    <input type="text" placeholder="enter name">
 </nav>
-<script>
-	if ('WebSocket' in window) {
-		(function () {
-			function refreshCSS() {
-				var sheets = [].slice.call(document.getElementsByTagName("link"));
-				var head = document.getElementsByTagName("head")[0];
-				for (var i = 0; i < sheets.length; ++i) {
-					var elem = sheets[i];
-					var parent = elem.parentElement || head;
-					parent.removeChild(elem);
-					var rel = elem.rel;
-					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-					}
-					parent.appendChild(elem);
-				}
-			}
-			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-			var address = protocol + window.location.host + window.location.pathname + '/ws';
-			var socket = new WebSocket(address);
-			socket.onmessage = function (msg) {
-				if (msg.data == 'reload') window.location.reload();
-				else if (msg.data == 'refreshcss') refreshCSS();
-			};
-			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-				console.log('Live reload enabled.');
-				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-			}
-		})();
-	}
-	else {
-		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-	}
-	
-</script>
+
 </body>
 </html>
