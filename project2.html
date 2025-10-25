@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>css project</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <style>
+   h1{
+    font-weight: bold;
+    text-align: center;
+   }
+   p{
+    font-size: 20px;
+   }
+   a{
+    color: blueviolet;
+    text-decoration: none;
+   }
+   .box{
+    width:200px;
+    height: 200px;
+    border: 2px solid red;
+    padding: 10px;
+    margin: 20px auto;
+   }
+.flex-container{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+.flex-box{
+  width: 100px;
+  height: 100px;
+  background-color: lightgreen;
+}
+ul li:hover{
+  background-color: lime;
+}
+ul li::before{
+  content: '• ';
+  color: black;
+}
+
+form{
+  margin-top: 20px;
+}
+input [type="text"],
+input[type="email"] {
+border: 1px solid #ccc;
+padding: 10px;
+margin: 5px 0;
+width: 100%;
+display: block; 
+}
+
+    input[type="text"]:focus, 
+    input[type="email"]:focus {
+      border-color: blue;
+    }
+
+    input[type="submit"] {
+      background-color: blue;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+    }
+
+    
+    .background-box {
+      width: 300px;
+      height: 200px;
+      background-image: url('https://via.placeholder.com/300');
+      border: 2px solid #000;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    
+    .custom-text {
+      font-family: 'Poppins', sans-serif;
+      font-size: 24px;
+      color: #ff0101;
+    }
+
+    .icon {
+      color: rgb(25, 0, 255);
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Welcome to My Webpage</h1>
+  <p>This is a styled paragraph with custom font size.</p>
+  <a href="https://v-extechsolution.in/">Visit Example</a>
+
+  
+  <div class="box">This is a box.</div>
+
+ 
+  <div class="flex-container">
+    <div class="flex-box"></div>
+    <div class="flex-box"></div>
+    <div class="flex-box"></div>
+  </div>
+
+  
+  <ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+  </ul>
+
+  
+  <form>
+    <input type="text" placeholder="Name" required>
+    <input type="email" placeholder="Email" required>
+    <input type="submit" value="Submit">
+  </form>
+
+  
+  <div class="background-box"></div>
+
+  <p class="custom-text">
+    <i class="fas fa-heart icon"></i>Styled text with custom font and icon
+  </p>
+
+  </style>
+</head>
+</body>
+</html>
