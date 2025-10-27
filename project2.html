@@ -2,135 +2,216 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>css project</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
-
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
+  <title>project CSS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-   h1{
-    font-weight: bold;
-    text-align: center;
-   }
-   p{
-    font-size: 20px;
-   }
-   a{
-    color: blueviolet;
-    text-decoration: none;
-   }
-   .box{
-    width:200px;
-    height: 200px;
-    border: 2px solid red;
-    padding: 10px;
-    margin: 20px auto;
-   }
-.flex-container{
-  display: flex;
-  justify-content: space-around;
-  margin-top: 20px;
-}
-.flex-box{
-  width: 100px;
-  height: 100px;
-  background-color: lightgreen;
-}
-ul li:hover{
-  background-color: lime;
-}
-ul li::before{
-  content: '• ';
-  color: black;
-}
-
-form{
-  margin-top: 20px;
-}
-input [type="text"],
-input[type="email"] {
-border: 1px solid #ccc;
-padding: 10px;
-margin: 5px 0;
-width: 100%;
-display: block; 
-}
-
-    input[type="text"]:focus, 
-    input[type="email"]:focus {
-      border-color: blue;
+    body {
+      font-family: 'Roboto', Arial, sans-serif;
+      background: #fafcff;
+      margin: 0;
+      padding: 0;
+    }
+    h1 {
+      font-weight: bold;
+      text-align: center;
+      margin-top: 32px;
+      color: #2457b2;
+    }
+    p {
+      font-size: 18px;
+      text-align: center;
+      margin-bottom: 22px;
+    }
+    a {
+      color: blue;
+      text-decoration: none;
+      display: block;
+      text-align: center;
+      margin-bottom: 32px;
+      font-size: 17px;
     }
 
-    input[type="submit"] {
-      background-color: blue;
+    .box-model-section {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 38px;
+    }
+    .box {
+      width: 200px;
+      height: 200px;
+      border: 2px solid red;
+      padding: 10px;
+      margin: 20px auto;
+      box-sizing: border-box;
+      display: block;
+      background: #fff4f4;
+      font-size: 17px;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      line-height: 180px;
+    }
+    
+    .flex-container {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      width: 600px;
+      margin: 0 auto 35px auto;
+    }
+    .flex-box {
+      width: 100px;
+      height: 100px;
+      background: #2457b2;
       color: white;
-      border: none;
-      padding: 10px 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      border-radius: 8px;
+      font-size: 18px;
+    }
+   
+    .pseudo-section {
+      width: 250px;
+      margin: 24px auto 35px auto;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    li {
+      position: relative;
+      padding-left: 15px;
+      margin-bottom: 8px;
+      transition: background 0.3s;
+      border-radius: 4px;
+      font-size: 17px;
       cursor: pointer;
     }
-
+    li:hover {
+      background: #dbeeff;
+    }
+    li::before {
+      content: "•";
+      color: #2457b2;
+      position: absolute;
+      left: 0;
+      font-size: 20px;
+      top: 0;
+    }
     
-    .background-box {
-      width: 300px;
-      height: 200px;
-      background-image: url('https://via.placeholder.com/300');
-      border: 2px solid #000;
+    form {
+      width: 310px;
+      margin: 30px auto 37px auto;
+      padding: 20px;
+      border: 1px solid #2457b2;
       border-radius: 10px;
-      margin-top: 20px;
+      background: #f6f7fa;
+      box-shadow: 0 2px 10px rgba(36,87,178,0.08);
     }
-
-    
-    .custom-text {
-      font-family: 'Poppins', sans-serif;
-      font-size: 24px;
-      color: #ff0101;
+    input[type="text"],
+    input[type="email"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 16px;
+      border: 1px solid #9aa7cc;
+      border-radius: 4px;
+      font-size: 15px;
+      transition: border-color 0.3s, background 0.3s;
     }
-
-    .icon {
-      color: rgb(25, 0, 255);
-      margin-right: 10px;
+    input[type="text"]:focus,
+    input[type="email"]:focus {
+      border-color: #2457b2;
+      background: #e7f0ff;
+      outline: none;
+    }
+    button {
+      background: #2457b2;
+      color: white;
+      padding: 10px 18px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 15px;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #153d7a;
+    }
+  
+    .bg-box {
+      width: 350px;
+      height: 180px;
+      background-image: url("./micah-sammie-chaffin-IYWNiaSXo4c-unsplash.jpg");
+      background-size: cover;
+      border: 3px solid #2457b2;
+      border-radius: 20px;
+      margin: 40px auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 22px;
+      font-weight: bold;
+      text-shadow: 1px 1px 2px #000;
+    }
+ 
+    .icon-title-section {
+      margin-top: 35px;
+      text-align: center;
+    }
+    .fa-solid {
+      font-size: 42px;
+      color: #2457b2;
+      margin-bottom: 12px;
+      display: block;
+    }
+    h2 {
+      font-family: 'Roboto', Arial, sans-serif;
+      font-size: 28px;
+      color: #2457b2;
+      margin-top: 0;
     }
   </style>
 </head>
 <body>
+  <h1>This is a Heading</h1>
+  <p>This is a paragraph styled with 18px font size.</p>
+  <a href="#">Visit Link</a>
 
-  <h1>Welcome to My Webpage</h1>
-  <p>This is a styled paragraph with custom font size.</p>
-  <a href="https://v-extechsolution.in/">Visit Example</a>
-
-  
-  <div class="box">This is a box.</div>
-
- 
-  <div class="flex-container">
-    <div class="flex-box"></div>
-    <div class="flex-box"></div>
-    <div class="flex-box"></div>
+  <div class="box-model-section">
+    <div class="box">Box Model</div>
   </div>
 
-  
-  <ul>
-    <li>Item 1</li>
-    <li>Item 2</li>
-    <li>Item 3</li>
-  </ul>
+  <div class="flex-container">
+    <div class="flex-box">Box 1</div>
+    <div class="flex-box">Box 2</div>
+    <div class="flex-box">Box 3</div>
+  </div>
 
-  
+  <div class="pseudo-section">
+    <ul>
+      <li>First item</li>
+      <li>Second item</li>
+      <li>Third item</li>
+    </ul>
+  </div>
+
   <form>
     <input type="text" placeholder="Name" required>
     <input type="email" placeholder="Email" required>
-    <input type="submit" value="Submit">
+    <button type="submit">Submit</button>
   </form>
 
-  
-  <div class="background-box"></div>
+  <div class="bg-box">
+    Background & Borders
+  </div>
 
-  <p class="custom-text">
-    <i class="fas fa-heart icon"></i>Styled text with custom font and icon
-  </p>
-
-  </style>
-</head>
+  <div class="icon-title-section">
+    <i class="fa-solid fa-star"></i>
+    <h2>Using Custom Fonts & Icons!</h2>
+  </div>
 </body>
 </html>
