@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Animation Practice</title>
+  <style>
+    .circle {
+      width: 40px;
+      height: 40px;
+      background: #b702ff;
+      border-radius: 50%;
+      position: relative;
+      animation: moveLR 1.5s linear infinite alternate;
+      margin: 16px;
+      display: inline-block;
+    }
+    @keyframes moveLR {
+      from { left: 0; }
+      to { left: 100px; }
+    }
+    .fade-in {
+      width: 100px;
+      height: 60px;
+      background: #03fc4d;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+      margin: 16px;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    .rotating-square {
+      width: 50px;
+      height: 50px;
+      background: #2ecc72;
+      animation: rotate360 1s linear infinite;
+      margin: 16px;
+      display: inline-block;
+    }
+    @keyframes rotate360 {
+      from { transform: rotate(0deg);}
+      to   { transform: rotate(360deg);}
+    }
+    .bouncing-ball {
+      width: 50px;
+      height: 50px;
+      background: #f7b731;
+      border-radius: 50%;
+      position: relative;
+      animation: bounce 1s ease-in-out infinite;
+      margin: 16px;
+      display: inline-block;
+    }
+    @keyframes bounce {
+      0%   { transform: translateY(0);}
+      50%  { transform: translateY(-60px);}
+      100% { transform: translateY(0);}
+    }
+    .color-text {
+      font-size: 1.5em;
+      font-weight: bold;
+      animation: colorChange 5s linear infinite;
+      margin: 16px;
+      display: inline-block;
+    }
+    @keyframes colorChange {
+      0%   { color: red; }
+      33%  { color: blue; }
+      66%  { color: green; }
+      100% { color: red; }
+    }
+  </style>
+</head>
+<body>
+  <div class="circle"></div>
+  <div class="fade-in">Fade In</div>
+  <div class="rotating-square"></div>
+  <div class="bouncing-ball"></div>
+  <div class="color-text">Animated Colors</div>
+</body>
+</html>
