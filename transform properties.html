@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Transform Effects</title>
+  <style>
+        .box {
+      width: 100px;
+      height: 100px;
+      background: #4bcffa;
+      margin: 12px;
+      transition: transform 0.4s;
+      display: inline-block;
+    }
+    .box:hover {
+      transform: rotate(45deg);
+    }
+
+    .scalable-img {
+      width: 120px;
+      transition: transform 0.4s;
+      margin: 12px;
+      vertical-align: middle;
+    }
+    .scalable-img:hover {
+      transform: scale(1.2);
+    }
+
+    .movable-div {
+      width: 100px;
+      height: 50px;
+      background: #ffda79;
+      margin: 12px;
+      display: inline-block;
+      transform: translate(50px, 20px);
+    }
+
+    .card {
+      width: 140px;
+      height: 90px;
+      perspective: 1000px;
+      display: inline-block;
+      margin: 12px;
+    }
+    .card-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.6s;
+    }
+    .card:hover .card-inner {
+      transform: rotateY(180deg);
+    }
+    .card-front,
+    .card-back {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      backface-visibility: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+    .card-front {
+      background: #b8e994;
+      color: #222;
+    }
+    .card-back {
+      background: #ffa801;
+      color: #fff;
+      transform: rotateY(180deg);
+    }
+
+    .heading {
+      font-size: 2em;
+      margin: 12px;
+      transform: skew(10deg, 5deg);
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+  
+  <img class="scalable-img" src="./micah-sammie-chaffin-IYWNiaSXo4c-unsplash.jpg" alt="Sample Image">
+
+  <div class="movable-div">Moved Box</div>
+
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">Front</div>
+      <div class="card-back">Back</div>
+    </div>
+  </div>
+
+  <h1 class="heading">Skewed Heading</h1>
+</body>
+</html>
