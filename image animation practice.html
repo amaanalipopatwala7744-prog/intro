@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+    font-family:system ui, sans-serif;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 36px 16px;
+    background: #eef4fa;
+    color: #153349;
+    }
+    h2{margin-top: 2.6em;}
+    h3{margin-top: 2em;}
+
+    .grow-btn{
+        padding: 1em 2em;
+        background: #007Bff;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        transition: transform 0.5s ease  box shadow 0.5s ease;
+        font-size: 1.1em;
+        cursor: pointer;
+    }
+    .grow-btn:hover{
+        transform: scale(1.07);
+        box-shadow: 0px 8px 24px rgba(0,0,0,0.13);
+    }
+    .img-hover-zoom-blur{
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+        border-radius: 12px;
+    }
+    .img-hover-zoom-blur .img{
+        display: block;
+        width: 260px;
+        height: 170px;
+        transition: transform 0.7s  cubic-bezier(0.23, 1, 0.320, 1) filter 0.6s;
+    }
+    .img-hover-zoom-blur:hover img{
+     transform: scale(1.1);
+     filter: blur(2px) brightness(0.93);
+    }
+    .card-3d-wrap{
+        width: 250px;
+        height: 160px;
+        perspective: 800px;
+        margin-bottom: 24px;
+        display: inline-block;
+    }
+    .card-3d{
+        width: 100%;
+        height:100%;
+        position: relative;
+        transform-style: preserve-3d;
+        transition: 0.7s cubic-bezier(.36,2,.79,.54);
+        cursor: pointer;
+    }
+    .card-3d-wrap:hover .card-3d{
+        transform: rotateY(180deg);
+    }
+    .card-3d-front, .card-3d-back{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        backface-visibility: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 16px;
+        font-size: 1.15em;
+        background: #f6f7fb;
+        box-shadow: 0px 3px 16px rgba(0,0,0,0.08);
+    }
+    .card-3d-back{
+        background: #007bff;
+        color: #fff;
+        transform: rotateY('180deg');
+    }
+    .slide-link {
+      position: relative;
+      color: #2057c4;
+      text-decoration: none;
+      font-weight: 500;
+      display: inline-block;
+      outline: none;
+    }
+    .slide-link::after {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0; bottom: -3px;
+      width: 0;
+      height: 3px;
+      background: #007BFF;
+      transition: width 0.3s cubic-bezier(.36,1.05,.71,1.05);
+    }
+    .slide-link:hover::after { width: 100%; }
+    .avatar-profile {
+      position: relative;
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      background: #fff;
+      margin-bottom: 16px;
+      cursor: pointer;
+      display: inline-block;
+    }
+    .avatar-profile img {
+      width: 100%; height: 100%;
+      display: block;
+    }
+    .profile-reveal {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      width: 100%;
+      padding: 14px 0 8px 0;
+      box-sizing: border-box;
+      background: rgba(255,255,255,0.99);
+      color: #0a2255;
+      display: flex; flex-direction: column;
+      align-items: center;
+      opacity: 0;
+      transform: translateY(80%);
+      transition: transform 0.34s, opacity 0.34s;
+      gap: 8px;
+    }
+    .avatar-profile:hover .profile-reveal {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .profile-icons a {
+      color: #1475ca; margin: 0 6px; font-size: 1.3em;
+      transition: color 0.18s;
+    }
+    .profile-icons a:hover { color: #0c51a3; }
+    /* 6. Menu Item Center Bar Grow */
+    .menu-item {
+      position: relative;
+      display: inline-block;
+      font-size: 1.11em;
+      padding: 0.7em 1em;
+      cursor: pointer;
+      margin-right: 18px;
+      color: #274172;
+      outline: none;
+    }
+    .menu-item::before {
+      content: '';
+      position: absolute;
+      left: 50%; bottom: 0;
+      height: 4px;
+      width: 0;
+      background: #20c997;
+      border-radius: 2px;
+      transition: width 0.3s ease, left 0.3s ease;
+      transform: translateX(-50%) scaleX(0.1);
+      transform-origin: center;
+    }
+    .menu-item:hover::before {
+      width: 80%;
+      transform: translateX(-50%) scaleX(1);
+    }
+    .letter-hover {
+      display: inline-block;
+      font-size: 1.44em;
+      font-weight: bold;
+      font-family: inherit;
+    }
+    .rising-text {
+      display: inline-block;
+      transition: transform 0.3s, color 0.3s;
+      transform: translateY(0);
+      color: inherit;
+      font-family: inherit;
+    }
+    .letter-hover:hover .rising-text {
+      color: #007BFF;
+      transition-delay: calc(var(--i) * 50ms);
+      transform: translateY(-9px);
+    }
+    .glass-card {
+      padding: 2em 1.7em;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.23);
+      backdrop-filter: blur(6px);
+      border: 1.8px solid rgba(255,255,255,0.25);
+      box-shadow: 0 2px 12px rgba(60,216,255,0.13);
+      color: #0b1829;
+      transition: backdrop-filter 0.4s, box-shadow 0.3s, border-color 0.4s;
+      margin: 1.7em 0 1em 0;
+      font-size: 1.1em;
+    }
+    .glass-card:hover {
+      backdrop-filter: blur(16px);
+      border-color: #a1dcf9;
+      box-shadow: 0 0 0 4px #18c4fa22, 0 14px 35px #51e7f93e;
+    }
+    .video-thumb {
+      position: relative;
+      width: 250px; height: 140px;
+      overflow: hidden;
+      border-radius: 12px;
+      display: inline-block;
+      margin-bottom: 14px;
+      margin-right: 10px;
+    }
+    .video-thumb img {
+      width: 100%; height: 100%; display: block;
+      object-fit: cover;
+    }
+    .play-overlay {
+      position: absolute;
+      left: 50%; top: 50%;
+      transform: translate(-50%,-50%);
+      width: 52px; height: 52px;
+      background: rgba(30, 164, 241, 0.95);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      transition: box-shadow 0.22s;
+      box-shadow: 0 0 0 0 #1ea4f1;
+      opacity: 0.94;
+      z-index: 1;
+    }
+    .play-overlay i { color: #fff; font-size: 1.8em; }
+    .video-thumb:hover .play-overlay {
+      animation: pulse 1.1s infinite;
+      box-shadow: 0 0 16px 8px #1ea4f160;
+    }
+    @keyframes pulse {
+      0% { transform: translate(-50%, -50%) scale(1);}
+      52% { transform: translate(-50%, -50%) scale(1.20);}
+      100% { transform: translate(-50%, -50%) scale(1);}
+    }
+    .img-gallery-main-wrap {
+      position: relative;
+      width: 220px; height: 180px;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+    .img-gallery-main {
+      position: absolute;
+      width: 100%; height: 100%;
+      top: 0; left: 0;
+      opacity: 0;
+      z-index: 0;
+      transition: opacity 0.45s;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+    .img-gallery-main.active {
+      opacity: 1;
+      z-index: 1;
+    }
+    .img-gallery-thumbs {
+      display: flex; gap: 8px; margin-top: 6px; 
+    }
+    .img-gallery-thumb {
+      width: 40px; height: 32px;
+      border-radius: 6px;
+      cursor: pointer;
+      object-fit: cover;
+      opacity: 0.62;
+      border: 2px solid transparent;
+      transition: border-color 0.13s, opacity 0.13s;
+    }
+    .img-gallery-thumb.selected,
+    .img-gallery-thumb:hover {
+      opacity: 1;
+      border-color: #00bfff;
+    }
+    .section {
+      margin-bottom: 2.6em;
+      padding-bottom: 1.4em;
+      border-bottom: 1px solid #dde6ef;
+    }
+</style>
+<body>
+ <h2>CSS Interactive Effects Showcase: All in One</h2>
+  <div class="section">
+    <h3>1. Growing Button With Shadow</h3>
+    <button class="grow-btn">Hover Me</button>
+  </div>
+  <div class="section">
+    <h3>2. Zoom/Blur Image On Hover</h3>
+    <div class="img-hover-zoom-blur">
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?fit=crop&w=400&q=80" alt="Scenery"/>
+    </div>
+  </div>
+  <div class="section">
+    <h3>3. 3D Flip Card</h3>
+    <div class="card-3d-wrap">
+      <div class="card-3d">
+        <div class="card-3d-front">Front Side</div>
+        <div class="card-3d-back">Back Revealed!</div>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <h3>4. Animated Underline Link</h3>
+    <a href="./https://v-extechsolution.in/" class="slide-link">Awesome Link Effect</a>
+  </div>
+  <div class="section">
+    <h3>5. Profile Avatar Reveal</h3>
+    <div class="avatar-profile">
+      <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Avatar"/>
+      <div class="profile-reveal">
+        <div><b>Jane Doe</b></div>
+        <div class="profile-icons">
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+    </div>
+</div>
+
+  <div class="section">
+    <h3>6. Growing Center Bar Menu Item</h3>
+    <span class="menu-item">Home</span>
+    <span class="menu-item">About</span>
+    <span class="menu-item">Contact</span>
+  </div>
+
+  <div class="section">
+    <h3>7. Rising Text Hover (Each Letter)</h3>
+    <span class="letter-hover" id="letter-hover-text"></span>
+  </div>
+
+  <div class="section">
+    <h3>8. Glassmorphism Card</h3>
+    <div class="glass-card">
+      <b>Glassmorphism</b>
+      <br>Elegant blur + border glow on hover!
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>9. Pulsing Play Button Overlay</h3>
+    <div class="video-thumb">
+      <img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=400&q=80" alt="Thumb"/>
+      <div class="play-overlay"><i class="fas fa-play"></i></div>
+    </div>
+  </div>
+  <div class="section">
+    <h3>10. Product Gallery Crossfade</h3>
+    <div>
+      <div class="img-gallery-main-wrap">
+        <img src="https://images.unsplash.com/photo-1526178613658-3f162204554b?fit=crop&w=400&q=80" class="img-gallery-main active" id="mainImg0" alt="Gallery 0">
+        <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?fit=crop&w=400&q=80" class="img-gallery-main" id="mainImg1" alt="Gallery 1">
+        <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?fit=crop&w=400&q=80" class="img-gallery-main" id="mainImg2" alt="Gallery 2">
+      </div>
+      <div class="img-gallery-thumbs">
+        <img src="https://images.unsplash.com/photo-1526178613658-3f162204554b?fit=crop&w=400&q=80" class="img-gallery-thumb selected" data-idx="0" alt="Gallery 0">
+        <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?fit=crop&w=400&q=80" class="img-gallery-thumb" data-idx="1" alt="Gallery 1">
+        <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?fit=crop&w=400&q=80" class="img-gallery-thumb" data-idx="2" alt="Gallery 2">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const text = 'Hover Each Letter!';
+    const container = document.getElementById('letter-hover-text');
+    container.innerHTML = '';
+    text.split('').forEach((l, i) => {
+      const span = document.createElement('span');
+      span.style.setProperty('--i', i);
+      span.className = 'rising-text';
+      span.textContent = l === ' ' ? '\u00A0' : l;
+      container.appendChild(span);
+    });
+    const thumbImgs = document.querySelectorAll('.img-gallery-thumb');
+    const mainImgs = document.querySelectorAll('.img-gallery-main');
+    thumbImgs.forEach(thumb => {
+      thumb.addEventListener('mouseenter', function() {
+        let idx = this.getAttribute('data-idx');
+        mainImgs.forEach((img, i) =>
+          img.classList.toggle('active', i == idx)
+        );
+        thumbImgs.forEach(t => t.classList.remove('selected'));
+        this.classList.add('selected');
+      });
+    });
+  </script>
+</body>
+</html>

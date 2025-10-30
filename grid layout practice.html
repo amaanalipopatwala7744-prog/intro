@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+body{
+    background-color: #23264b;
+}
+.main{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,140px);
+    gap: 10px;
+    margin: 50px auto;
+    width: 540px;
+    padding: 16px;
+    background-color: #23264b;
+}
+.box{
+    border-radius: 5px;
+    border: none;
+}
+.box1{
+    grid-row: 1/3;
+    grid-column: 1/2;
+    background-color: #66bb45;
+}
+.box2{
+    grid-row: 1/2;
+    grid-column: 2/3;
+    background-color: #66bb45;
+}
+.box3{
+    grid-row: 1/2;
+    grid-column: 3/4;
+    background-color: #ee4645;
+} 
+.box4{
+    grid-row:2/3 ;
+    grid-column:2/3 ;
+    background-color: #ffc53e;
+}
+.box5{
+    grid-row: 2/3;
+    grid-column: 3/4;
+    background-color: #ee4645;
+}
+.box6{
+    grid-row: 3/4;
+    grid-column: 1/2;
+    background-color: #ee4645;
+}
+.box7{
+    grid-row:3/4 ;
+    grid-column: 2/3;
+    background-color:#ffc53e ;
+}
+.box8{
+    grid-row:2/4 ;
+    grid-column:3/4 ;
+    background-color: #66bb45;
+}
+</style>
+<body>
+    <div class="main">
+        <div class="box box1"></div>
+        <div class="box box2"></div>
+        <div class="box box3"></div>
+        <div class="box box4"></div>
+        <div class="box box5"></div>
+        <div class="box box6"></div>
+        <div class="box box7"></div>
+        <div class="box box8"></div>
+    </div>
+</body>
+</html>

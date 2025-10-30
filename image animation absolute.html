@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+.real-box{
+height: 300px;
+width: 250px;
+background-color: blue;
+position: relative;
+ 
+}
+
+.overlay{
+position: absolute;
+bottom: 0;
+top: 0;
+right: 0;
+background-color: #008CBA;
+overflow: hidden;
+width:0 ;
+height: 100%;
+transition: .5s ease;
+
+}
+
+p{
+padding: 8px;
+}
+
+.real-box:hover .overlay{
+width: 100%;
+}
+</style>
+<body>
+<div class="real-box">
+
+<div class="overlay">
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur iste consequatur nulla, nisi eos iusto sed id cum labore dolores nihil! Nostrum culpa in dicta earum possimus corrupti, harum itaque?</p>
+</div>
+
+</div>
+</body>
+</html>
