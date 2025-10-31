@@ -2,94 +2,99 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Combined CSS Examples</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      background-color: #23264b;
-      color: #fff;
-      font-family: sans-serif;
-    }
-    .gradient-btn {
-      padding: 12px 24px;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      background: linear-gradient(90deg, blue, green);
-      cursor: pointer;
-      font-size: 16px;
-      transition: background 0.7s;
-      margin-bottom: 24px;
-    }
-    .gradient-btn:hover {
-      background: linear-gradient(90deg, red, yellow);
-    }
-    .ellipsis-box {
-      width: 200px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      border: 1px solid #ccc;
-      padding: 8px;
-      margin-bottom: 16px;
-      background: #1c1f39;
-      color: #fff;
-    }
-    .transform-box {
-      width: 100px;
-      height: 100px;
-      background: #4ac;
-      transition: transform 0.5s;
-      margin-bottom: 24px;
-      margin-top: 8px;
-    }
-    .transform-box:hover {
-      transform: rotate(45deg) scale(1.5) translateX(50px);
-    }
-    .ball-container {
-      height: 180px;
-      position: relative;
-      margin-bottom: 24px;
-    }
-    .ball {
-      width: 50px;
-      height: 50px;
-      background: #f04a3e;
-      border-radius: 50%;
-      position: absolute;
-      left: 0;
-      animation: bounce 1s infinite cubic-bezier(.65, .05, .36, 1);
-    }
-    @keyframes bounce {
+  <title>css advance project</title>
+</head>
+<style>
+  body{
+    background-color: #23264b;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .gradient-btn{
+    padding: 12px 24px;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    background: linear-gradient(90deg,blue,green);
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.7s;
+    margin-bottom: 24px;
+  }
+.gradient-btn:hover{
+  background: linear-gradient(90deg,red,yellow);
+}
+.ellipsis-box{
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border: 1px solid #ccc;
+  padding: 8px;
+  margin-bottom: 16px;
+  background: #1c1f39;
+  color: #ccc;
+}
+.transform-box{
+  width: 100px;
+  height: 100px;
+  background: #4ac;
+  transition: transform 0.5s;
+  margin-bottom: 24px;
+  margin-top: 8px;
+}
+.transform-box:hover{
+  transform: rotate(45deg) scale(1.5) translateX(50px);
+}
+.ball-container{
+  display: flex;
+  justify-content: center;
+  height: 180px;
+  position: relative;
+  margin-bottom: 24px;
+
+.ball{
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  background: #f04a3e;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  animation: bounce 1s infinite cubic-bezier(.65,05,.36,1);
+}
+}
+ @keyframes bounce {
       0%, 100% { top: 0; }
       50% { top: 120px; }
     }
-    .responsive-three-boxes {
-      display: flex;
-      gap: 16px;
-      margin-bottom: 24px;
-    }
-    .box {
-      flex: 1;
-      background: #9be7ff;
-      padding: 24px;
-      text-align: center;
-      border-radius: 8px;
-      color: #23264b;
-    }
-    @media (max-width: 500px) {
-      .responsive-three-boxes {
-        flex-direction: column;
-      }
-    }
-    .grid-layout {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(2, 150px);
-      gap: 10px;
-      margin-bottom: 24px;
-    }
-    .grid-item {
+.responsive-three-boxes{
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.box{
+  flex: 1;
+  background: #9be7ff;
+  padding: 24px;
+  text-align: center;
+  border-radius: 8px;
+  color: #23264b;
+}
+@media(max-width:500px){
+  .responsive-three-boxes{
+    flex-direction: column;
+  }
+}
+.grid-layout{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-template-rows: repeat(2,150px);
+  gap: 10px;
+  margin-bottom: 24px;
+}
+ .grid-item {
       color: #333;
       display: flex;
       align-items: center;
@@ -206,10 +211,9 @@
       background: #ffe066;
       transform: rotateY(180deg);
     }
-  </style>
-</head>
+</style>
 <body>
-  <button class="gradient-btn">Click Me</button>
+ <button class="gradient-btn">Click Me</button>
 
   <div class="ellipsis-box">
     This is a very long line of text that will get truncated with an ellipsis if it overflows the box.
