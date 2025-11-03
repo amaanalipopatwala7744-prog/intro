@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex - Start Chatting with Customers</title>
+    <style>
+        :root {
+            --color-white: rgba(255, 255, 255, 1);
+            --color-black: rgba(0, 0, 0, 1);
+            --color-cream-50: rgba(252, 252, 249, 1);
+            --color-cream-100: rgba(255, 255, 253, 1);
+            --color-gray-200: rgba(245, 245, 245, 1);
+            --color-gray-300: rgba(167, 169, 169, 1);
+            --color-slate-900: rgba(19, 52, 59, 1);
+            --color-teal-500: rgba(33, 128, 141, 1);
+            --color-teal-600: rgba(29, 116, 128, 1);
+            --color-orange-500: rgba(255, 153, 0, 1);
+            --color-orange-600: rgba(230, 135, 0, 1);
+            --color-brown-600-rgb: 94, 82, 64;
+            --font-family-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --radius-base: 8px;
+            --radius-lg: 12px;
+            --radius-full: 9999px;
+            --space-8: 8px;
+            --space-12: 12px;
+            --space-16: 16px;
+            --space-20: 20px;
+            --space-24: 24px;
+            --space-32: 32px;
+            --space-48: 48px;
+            --space-64: 64px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family-base);
+            background-color: var(--color-cream-50);
+            color: var(--color-slate-900);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-24) var(--space-64);
+            background-color: var(--color-white);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--color-orange-500);
+        }
+
+        nav {
+            display: flex;
+            gap: var(--space-32);
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--color-slate-900);
+            font-size: 15px;
+            font-weight: 500;
+            position: relative;
+            padding-bottom: 4px;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: var(--color-orange-500);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: var(--space-16);
+            align-items: center;
+        }
+
+        .login-btn {
+            text-decoration: none;
+            color: var(--color-slate-900);
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .signup-btn {
+            background-color: var(--color-orange-500);
+            color: var(--color-white);
+            padding: var(--space-12) var(--space-24);
+            border-radius: var(--radius-base);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .signup-btn:hover {
+            background-color: var(--color-orange-600);
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--space-64) var(--space-64);
+            background-color: var(--color-white);
+            gap: var(--space-48);
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 550px;
+        }
+
+        .hero-content h1 {
+            font-size: 52px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: var(--space-24);
+            color: var(--color-slate-900);
+        }
+
+        .hero-content p {
+            font-size: 16px;
+            color: var(--color-gray-300);
+            margin-bottom: var(--space-32);
+            line-height: 1.6;
+        }
+
+        .cta-btn {
+            background-color: var(--color-orange-500);
+            color: var(--color-white);
+            padding: var(--space-16) var(--space-32);
+            border-radius: var(--radius-base);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background-color: var(--color-orange-600);
+        }
+
+        .hero-image {
+            flex: 1;
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: var(--radius-lg);
+        }
+
+        /* Features Section */
+        .features {
+            padding: var(--space-64) var(--space-64);
+            background-color: var(--color-cream-50);
+            text-align: center;
+        }
+
+        .features h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: var(--space-48);
+            color: var(--color-slate-900);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-32);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background-color: var(--color-white);
+            padding: var(--space-32);
+            border-radius: var(--radius-lg);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-20);
+            font-size: 24px;
+        }
+
+        .icon-orange {
+            background-color: rgba(255, 153, 0, 0.1);
+        }
+
+        .icon-green {
+            background-color: rgba(34, 197, 94, 0.1);
+        }
+
+        .icon-yellow {
+            background-color: rgba(245, 158, 11, 0.1);
+        }
+
+        .feature-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: var(--space-12);
+            color: var(--color-slate-900);
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: var(--color-gray-300);
+            line-height: 1.6;
+        }
+
+        /* Conversation Sections */
+        .conversation-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--space-64) var(--space-64);
+            gap: var(--space-48);
+            background-color: var(--color-white);
+        }
+
+        .conversation-section:nth-of-type(even) {
+            flex-direction: row-reverse;
+            background-color: var(--color-cream-50);
+        }
+
+        .conversation-content {
+            flex: 1;
+            max-width: 500px;
+        }
+
+        .conversation-content h2 {
+            font-size: 42px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: var(--space-24);
+            color: var(--color-slate-900);
+        }
+
+        .conversation-content p {
+            font-size: 16px;
+            color: var(--color-gray-300);
+            line-height: 1.6;
+        }
+
+        .conversation-mockup {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .chat-interface {
+            background-color: var(--color-white);
+            border-radius: var(--radius-lg);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: var(--space-24);
+            width: 100%;
+            max-width: 400px;
+            border: 1px solid var(--color-gray-200);
+        }
+
+        .chat-message {
+            display: flex;
+            gap: var(--space-12);
+            margin-bottom: var(--space-20);
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--color-gray-200);
+        }
+
+        .message-content {
+            background-color: var(--color-cream-50);
+            padding: var(--space-12) var(--space-16);
+            border-radius: var(--radius-base);
+            max-width: 280px;
+        }
+
+        .message-content p {
+            font-size: 14px;
+            color: var(--color-slate-900);
+            margin: 0;
+        }
+
+        .message-orange {
+            background-color: var(--color-orange-500);
+        }
+
+        .message-orange p {
+            color: var(--color-white);
+        }
+
+        .typing-indicator {
+            display: flex;
+            gap: 4px;
+            padding: var(--space-8);
+        }
+
+        .typing-indicator span {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: var(--color-gray-300);
+        }
+
+        .chat-input {
+            margin-top: var(--space-20);
+            display: flex;
+            gap: var(--space-8);
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: var(--space-12);
+            border: 1px solid var(--color-gray-200);
+            border-radius: var(--radius-base);
+            font-size: 14px;
+        }
+
+        .chat-input button {
+            background-color: var(--color-orange-500);
+            color: var(--color-white);
+            border: none;
+            padding: var(--space-12);
+            border-radius: var(--radius-base);
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background-color: var(--color-orange-500);
+            padding: var(--space-64) var(--space-64);
+            text-align: center;
+        }
+
+        .testimonials h2 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--color-white);
+            margin-bottom: var(--space-48);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: var(--space-32);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background-color: var(--color-white);
+            padding: var(--space-32);
+            border-radius: var(--radius-lg);
+            text-align: left;
+        }
+
+        .testimonial-header {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--color-orange-500);
+            margin-bottom: var(--space-16);
+        }
+
+        .testimonial-text {
+            font-size: 15px;
+            color: var(--color-slate-900);
+            line-height: 1.7;
+            margin-bottom: var(--space-24);
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: var(--space-16);
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--color-orange-500);
+        }
+
+        .author-info h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--color-slate-900);
+        }
+
+        .author-info p {
+            font-size: 13px;
+            color: var(--color-gray-300);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: var(--space-64) var(--space-64);
+            text-align: center;
+            background-color: var(--color-white);
+        }
+
+        .cta-section h2 {
+            font-size: 38px;
+            font-weight: 700;
+            margin-bottom: var(--space-16);
+            color: var(--color-slate-900);
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            color: var(--color-gray-300);
+            margin-bottom: var(--space-32);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--color-cream-50);
+            padding: var(--space-48) var(--space-64);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-32);
+        }
+
+        .footer-logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--color-orange-500);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: var(--space-32);
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: var(--color-slate-900);
+            font-size: 15px;
+            font-weight: 500;
+            position: relative;
+            padding-bottom: 4px;
+        }
+
+        .footer-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: var(--color-orange-500);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .footer-links a:hover::after {
+            width: 100%;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: var(--space-16);
+        }
+
+        .social-icons a {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--color-orange-500);
+            color: var(--color-white);
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--color-orange-600);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: var(--space-24);
+            border-top: 1px solid rgba(var(--color-brown-600-rgb), 0.2);
+            color: var(--color-gray-300);
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: var(--space-24);
+                padding: var(--space-24);
+            }
+
+            nav {
+                flex-direction: column;
+                gap: var(--space-16);
+            }
+
+            .hero {
+                flex-direction: column;
+                padding: var(--space-32);
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 36px;
+            }
+
+            .conversation-section {
+                flex-direction: column;
+                padding: var(--space-32);
+            }
+
+            .conversation-section:nth-of-type(even) {
+                flex-direction: column;
+            }
+
+            .features-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: var(--space-24);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">Apex</div>
+        <nav>
+            <a href="#demos">Demos</a>
+            <a href="#about">About</a>
+            <a href="#blog">Blog</a>
+            <a href="#pages">Pages</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div class="auth-buttons">
+            <a href="#login" class="login-btn">Login</a>
+            <a href="#signup" class="signup-btn">Get Started Free</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Start Chatting with customers, anytime, anywhere with Apex</h1>
+            <p>Create software that allows you to chat from any place at any time without any interruption.</p>
+            <a href="#start" class="cta-btn">Start Chatting Now</a>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=700&fit=crop" alt="Happy woman using mobile phone">
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2>Features for better experience</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon icon-orange">💬</div>
+                <h3>Video messaging</h3>
+                <p>This software is very easy for you to manage. You can use it as you wish.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon icon-green">⏰</div>
+                <h3>Save your time</h3>
+                <p>This software is very easy for you to manage. You can use it as you wish.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon icon-yellow">🔒</div>
+                <h3>Keep safe &amp; private</h3>
+                <p>This software is very easy for you to manage. You can use it as you wish.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conversation Section 1 -->
+    <section class="conversation-section">
+        <div class="conversation-content">
+            <h2>Start selling directly inside conversations</h2>
+            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered an injected humour or randomised words which don't look even slightly believable.</p>
+        </div>
+        <div class="conversation-mockup">
+            <div class="chat-interface">
+                <div class="chat-message">
+                    <div class="avatar"></div>
+                    <div class="message-content">
+                        <p>Hello! My name is Alice, how can I help you?</p>
+                    </div>
+                </div>
+                <div class="chat-message" style="justify-content: flex-end;">
+                    <div class="message-content message-orange">
+                        <p>Hi! Julia here. I have a few questions, I would love to ask you, if that is ok.</p>
+                    </div>
+                </div>
+                <div class="chat-message">
+                    <div class="avatar"></div>
+                    <div class="message-content">
+                        <p>Nice to meet you Julia</p>
+                    </div>
+                </div>
+                <div class="chat-message">
+                    <div class="avatar"></div>
+                    <div class="message-content">
+                        <div class="typing-indicator">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-input">
+                    <input type="text" placeholder="Write your reply...">
+                    <button>&gt;</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conversation Section 2 -->
+    <section class="conversation-section">
+        <div class="conversation-content">
+            <h2>Start selling directly inside conversations</h2>
+            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered an injected humour or randomised words which don't look even slightly believable.</p>
+        </div>
+        <div class="conversation-mockup">
+            <div class="chat-interface">
+                <div class="chat-message">
+                    <div class="avatar"></div>
+                    <div class="message-content">
+                        <p>Hello! My name is Alice, how can I help you?</p>
+                    </div>
+                </div>
+                <div class="chat-message" style="justify-content: flex-end;">
+                    <div class="message-content message-orange">
+                        <p>Hi! Julia here. I have a few questions, I would love to ask you, if that is ok.</p>
+                    </div>
+                </div>
+                <div class="chat-message">
+                    <div class="avatar"></div>
+                    <div class="message-content">
+                        <p>Nice to meet you Julia</p>
+                    </div>
+                </div>
+                <div class="chat-message">
+                    <div class="avatar"></div>
+                    <div class="message-content">
+                        <div class="typing-indicator">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-input">
+                    <input type="text" placeholder="Write your reply...">
+                    <button>&gt;</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h2>Our blessed client said about us 🤩</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-header">"Incredible Experience"</div>
+                <div class="testimonial-text">We had an incredible experience working with Mixland and were impressed they made such a big difference in only three weeks. Our team is so grateful for the wonderful improvements they made and their ability to get familiar with the product concept so quickly.</div>
+                <div class="testimonial-author">
+                    <div class="author-avatar"></div>
+                    <div class="author-info">
+                        <h4>Wade Warren</h4>
+                        <p>CEO, ABC Corporation</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-header">"Incredible Experience"</div>
+                <div class="testimonial-text">We had an incredible experience working with Mixland and were impressed they made such a big difference in only three weeks. Our team is so grateful for the wonderful improvements they made and their ability to get familiar with the product concept so quickly.</div>
+                <div class="testimonial-author">
+                    <div class="author-avatar"></div>
+                    <div class="author-info">
+                        <h4>Wade Warren</h4>
+                        <p>CEO, ABC Corporation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Ready to grow your business?</h2>
+        <p>Start with Apex, become faster every second</p>
+        <a href="#start" class="cta-btn">Start Chatting Now</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">Apex</div>
+            <div class="footer-links">
+                <a href="#about">About</a>
+                <a href="#features">Features</a>
+                <a href="#works">Works</a>
+                <a href="#support">Support</a>
+            </div>
+            <div class="social-icons">
+                <a href="#" aria-label="Twitter">𝕏</a>
+                <a href="#" aria-label="Facebook">f</a>
+                <a href="#" aria-label="Instagram">📷</a>
+                <a href="#" aria-label="YouTube">▶</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 Copyright, All Right Reserved, Made by Apex team
+        </div>
+    </footer>
+</body>
+</html>
