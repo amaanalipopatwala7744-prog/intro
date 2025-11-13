@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="practice ques 2.css">
+</head>
+<style>
+    body{
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f4f4f4;
+    }
+    .container{
+        position: relative;
+        width: 650px;
+        height: 500px;
+        background: #fff;
+    }
+    .ellipsis-box{
+       width: 200px;
+       white-space: nowrap;
+       overflow: hidden;
+       text-overflow: ellipsis;
+       border: 1px solid #ccc;
+       padding: 8px;
+       margin-bottom: 16px;
+       background: #1c1f39;
+       color: #ccc;
+    }
+    .container1{
+        display: flex;
+        gap: 50px;
+    }
+    .shape{
+        width: 30px;
+        height: 30px;
+        transition: all 0.5s cubic-bezier(.4,0.2.1);
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    }
+    .ball{
+        background: #63cfde;
+        border-radius: 50%;
+    }
+    .box{
+        background: #fd886b;
+        border-radius: 18px;
+    }
+    .ball:hover{
+        background: #fd886b;
+        border-radius: 18px;
+        box-shadow: 0 2px 32px rgba(253,136,107,0.15);
+    }
+    .box:hover{
+        background: #63cfde;
+        border-radius: 50%;
+        box-shadow: 0 2px 32px rgba(99,207,222,0.15);
+    }
+    .box{
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        background: blue;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px solid black;
+    }
+    .box1{
+        top: 0;
+        left: 0;
+    }
+    .box2{
+        top: 0;
+        right: 0;
+    }
+    .box3{
+        left: 0;
+        bottom: 0;
+    }
+    .box4{
+        right: 0;
+        bottom: 0;
+    }
+    .box5{
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+    }
+</style>
+<body>
+  <div class="container">
+    <div class="box box1"></div>
+    <div class="box box2"></div>
+    <div class="box box3"></div>
+    <div class="box box4"></div>
+    <div class="box box5"></div>
+  </div>
+  <div class="ellipsis-box">
+    Hi buddy.....................
+  </div>
+  <div class="container1">
+    <div class="shape ball"></div>
+    <div class="shape box"></div>
+  </div>
+  <div class="one">
+    
+    <div class="four">top</div>
+    <div class="five">bottom</div>
+  </div>
+</body>
+</html>

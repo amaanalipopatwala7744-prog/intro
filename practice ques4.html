@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ball and Box Animation</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #fafafa;
+    }
+    .container {
+      position: relative;
+      width: 260px;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 60px;
+    }
+    .shape {
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      top: 10px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    }
+    .ball {
+      left: 0;
+      background: #63cfde;
+      border-radius: 50%;
+      z-index: 2;
+      animation: ballToBox 2.5s ease-in-out infinite alternate;
+    }
+    .box {
+      right: 0;
+      background: #fd886b;
+      border-radius: 18px;
+      z-index: 2;
+      animation: boxToBall 2.5s ease-in-out infinite alternate;
+    }
+
+    /* Ball morphs and moves */
+    @keyframes ballToBox {
+      0% {
+        left: 0;
+        background: #63cfde;
+        border-radius: 50%;
+      }
+      50% {
+        left: 120px;
+        background: #fd886b;
+        border-radius: 18px;
+      }
+      100% {
+        left: 0;
+        background: #63cfde;
+        border-radius: 50%;
+      }
+    }
+
+    /* Box morphs and moves */
+    @keyframes boxToBall {
+      0% {
+        right: 0;
+        background: #fd886b;
+        border-radius: 18px;
+      }
+      50% {
+        right: 120px;
+        background: #63cfde;
+        border-radius: 50%;
+      }
+      100% {
+        right: 0;
+        background: #fd886b;
+        border-radius: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="shape ball"></div>
+    <div class="shape box"></div>
+  </div>
+</body>
+</html>
